@@ -28,6 +28,57 @@ public class Traverse {
     v45.neighbors = new ArrayList<>(List.of(v23));
     v23.neighbors = new ArrayList<>(List.of());
     v67.neighbors = new ArrayList<>(List.of(v91));
+
+    //Set<Vertex<Integer>> Visited = new HashSet<>();
+    //Set<Vertex<?>> Visited = new HashSet<>();
+   //  traverse(v3, Visited);
+   //traverse(v3);
+
+   int result = sum(v3);
+   System.out.println(result);
+  }
+
+  public static int sum(Vertex<Integer> current) {
+   Set<Vertex<Integer>> Visited = new HashSet<>();
+    return sum(current, Visited);
+  }
+
+  public static int sum(Vertex<Integer> current, Set(Vertex<Integer>> visited) {
+    if (current == null || Visited.contains(current)) return 0;
+
+    Visited.add(current);
+    
+    int total = 0;
+    total += current.data;
+
+
+    for(Vertex<Integer> neighbor : current.neighbors) {
+      int neighnorSum = sum(neighbor, Visited);
+      total += neighnorSum;
+    }
+    return total;
+  }
+
+  // 1
+  public static <T> void traverse(Vertex<T> current) {
+    Set<Vertex<T>> myVisited = new HashSet<>();
+    traverse(current, myVisited);
+  }
+
+  
+
+// 2
+  public static <T> void traverse(Vertex<T> current, Set<Vertex<T>> Visited) {
+    if (current == null || Visited.contains(current)) return;
+    
+
+    System.out.println(current.data);
+    Visited.add(current);
+
+    for (Vertex<?> neighbor : current.neighbors) {
+     
+    }
+    return total;
   }
 
 }
